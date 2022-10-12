@@ -42,38 +42,13 @@
                 <h1>Welcome to EZCalories</h1>
             </div>
             <div class="title">
-                {{res}}
                 <div class="input-group mb-3 w-25">
                     <div class="input-group-prepend">
-                        <form action="" method="POST">
-                            {% csrf_token %} {{form.as_p }} <input type="submit"
-                            value=Submit">
-                        </form>
-                        <button
-                            class="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                        >
-                            Dropdown
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">100g</a>
-                            <a class="dropdown-item" href="#">200g</a>
-                            <a class="dropdown-item" href="#">300g</a>
-                        </div>
                         <form action="" method="POST">
                             {% csrf_token %} {{form }} <input type="submit"
                             value=Submit">
                         </form>
                     </div>
-                    <input
-                        type="text"
-                        class="form-control"
-                        aria-label="Text input with dropdown button"
-                        placeholder="Enter a type of food"
-                    />
                 </div>
             </div>
             <div>
