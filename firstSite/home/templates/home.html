@@ -22,6 +22,19 @@
             align-items: center;
             justify-content: center;
         }
+
+        .meals {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .date {
+            display: flex;
+            margin-left: auto;
+            margin-right: 10px;
+        }
     </style>
     <body>
         <div>
@@ -36,6 +49,79 @@
                             {% csrf_token %} {{form.as_p }} <input type="submit"
                             value=Submit">
                         </form>
+                        <button
+                            class="btn btn-outline-secondary dropdown-toggle"
+                            type="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            Dropdown
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">100g</a>
+                            <a class="dropdown-item" href="#">200g</a>
+                            <a class="dropdown-item" href="#">300g</a>
+                        </div>
+                        <form action="" method="POST">
+                            {% csrf_token %} {{form }} <input type="submit"
+                            value=Submit">
+                        </form>
+                    </div>
+                    <input
+                        type="text"
+                        class="form-control"
+                        aria-label="Text input with dropdown button"
+                        placeholder="Enter a type of food"
+                    />
+                </div>
+            </div>
+            <div>
+                <h1>Meals</h1>
+                <div class="meals">
+                    <div class="card border-dark mb-3" style="max-width: 18rem">
+                        <div class="card-header">150g Chicken Breast</div>
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">Total Calories: 300</h5>
+                            <p class="card-text">
+                                Protein: 100g <br />
+                                Fat: 10g
+                            </p>
+                        </div>
+                        <p class="date">2022-10-12</p>
+                    </div>
+                    <div class="card border-dark mb-3" style="max-width: 18rem">
+                        <div class="card-header">150g Chicken Breast</div>
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">Total Calories: 300</h5>
+                            <p class="card-text">
+                                Protein: 100g <br />
+                                Fat: 10g
+                            </p>
+                        </div>
+                        <p class="date">2022-10-12</p>
+                    </div>
+                    <div class="card border-dark mb-3" style="max-width: 18rem">
+                        <div class="card-header">150g Chicken Breast</div>
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">Total Calories: 300</h5>
+                            <p class="card-text">
+                                Protein: 100g <br />
+                                Fat: 10g
+                            </p>
+                        </div>
+                        <p class="date">2022-10-12</p>
+                    </div>
+                    <div class="card border-dark mb-3" style="max-width: 18rem">
+                        <div class="card-header">150g Chicken Breast</div>
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">Total Calories: 300</h5>
+                            <p class="card-text">
+                                Protein: 100g <br />
+                                Fat: 10g
+                            </p>
+                        </div>
+                        <p class="date">2022-10-12</p>
                     </div>
                 </div>
             </div>
