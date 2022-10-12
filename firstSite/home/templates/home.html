@@ -29,7 +29,7 @@
                 <h1>Welcome to EZCalories</h1>
             </div>
             <div class="title">
-                <div class="input-group mb-3 w-75">
+                <div class="input-group mb-3 w-25">
                     <div class="input-group-prepend">
                         <button
                             class="btn btn-outline-secondary dropdown-toggle"
@@ -38,33 +38,23 @@
                             aria-haspopup="true"
                             aria-expanded="false"
                         >
-                            Units
-                        </button>
-                        <button
-                            class="btn btn-outline-secondary"
-                            type="button"
-                            placeholder="increment"
-                        >
-                            Decrease
+                            Dropdown
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">grams (g)</a>
-                            <a class="dropdown-item" href="#">pounds (lbs)</a>
-                            <a class="dropdown-item" href="#">ounces (oz)</a>
+                            <a class="dropdown-item" href="#">100g</a>
+                            <a class="dropdown-item" href="#">200g</a>
+                            <a class="dropdown-item" href="#">300g</a>
                         </div>
+                        <form action="" method="POST">
+                            {% csrf_token %} {{form }} <input type="submit"
+                            value=Submit">
+                        </form>
                     </div>
-                    <input type="text" placeholder="Amount" />
-                    <button
-                        class="btn btn-outline-secondary"
-                        type="button"
-                        placeholder="increment"
-                    >
-                        Increase
-                    </button>
                     <input
                         type="text"
-                        placeholder="Food Item"
-                        aria-describedby="basic-addon1"
+                        class="form-control"
+                        aria-label="Text input with dropdown button"
+                        placeholder="Enter a type of food"
                     />
                 </div>
             </div>
