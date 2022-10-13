@@ -17,7 +17,7 @@ def home(request):
     foods = Food.objects.all()
 
     context = {'foods': foods}
-    return render(request, "home.html", context)
+    return render(request, "index.html", context)
     
 def addFood(request):
     import json
