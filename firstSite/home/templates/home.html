@@ -38,7 +38,6 @@
     </style>
     <body>
         <div>
-            
             <div class="title">
                 <h1>Welcome to EZCalories</h1>
             </div>
@@ -55,13 +54,12 @@
                 <a href="{% url 'add_food' %}">Add Food</a>
                 <table class="table table-sm">
                     {% for food in foods %}
-                        <tr>
-                            <td>{{food.name}}</td>
-                            <td>{{food.calories}}</td>
-                        </tr>
+                    <tr>
+                        <td>{{food.name}}</td>
+                        <td>{{food.calories}}</td>
+                    </tr>
                     {% endfor %}
                 </table>
-
             </div>
             <div>
                 <h1>Meals</h1>
