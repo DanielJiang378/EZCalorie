@@ -22,7 +22,7 @@ def addFood(request):
     form = foodForm()
     if request.method == 'POST':
         form = foodForm(request.POST)
-        query = request.POST['quantity'] + request.POST['unit'] + " "+ request.POST['name']
+        query = request.POST['quantity'] + request.POST['unit'] + " " + request.POST['name']
         api_url = "https://api.calorieninjas.com/v1/nutrition?query="
         response = requests.get (api_url + query, headers ={'X-Api-Key': 'SeoEFgGuKRfRhHPo1+abzQ==xxVveS7IslW8qTa3'})
         print(json.loads(response.content))
