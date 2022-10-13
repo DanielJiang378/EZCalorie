@@ -60,8 +60,20 @@
                 {{error}}
                 <a href="{% url 'add_food' %}">Add Food</a>
                 <table class="table table-sm">
-                    {% for food in foods %}
+                    {% for food in today %}
                     <tr>
+                        <td>{{food.day}}</td>
+                        <td>{{food.name}}</td>
+                        <td>{{food.calories}}</td>
+                        <td>
+                            <a href="{% url 'delete_food' food.id %}"
+                                >Delete Food</a
+                            >
+                        </td>
+                    </tr>
+                    {% endfor %} {% for food in rest %}
+                    <tr>
+                        <td>{{food.day}}</td>
                         <td>{{food.name}}</td>
                         <td>{{food.calories}}</td>
                         <td>
