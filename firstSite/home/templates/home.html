@@ -58,6 +58,7 @@
                         <tr>
                             <td>{{food.name}}</td>
                             <td>{{food.calories}}</td>
+                            <td><a href="{% url 'delete_food' food.id %}">Delete Food</a></td>
                         </tr>
                     {% endfor %}
                 </table>

@@ -46,3 +46,16 @@ def addFood(request):
             return render(request, 'add.html', {'error': '!!!!!!!!!!!!!!'})
     context = {'form': form}
     return render(request, 'add.html', context)
+
+def deleteFood(request, pk):
+    import json
+    import requests
+    food = Food.objects.get(id=pk)
+    print(food)
+    if request.method == "POST":
+        food.delete()
+        print('delete')
+        return redirect('/')
+
+    context = {'item':food}
+    return render(request, 'delete.html', context)
