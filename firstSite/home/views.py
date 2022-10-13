@@ -25,15 +25,27 @@ def home(request):
     todayMeals = Food.objects.all().filter(day__date = now)
     #foods = Food.objects.all().filter(day__date = now)
 
-    calorieTotal = 0
-    proteinTotal = 0
+
+    
+    calorieTotal = 0.00
+    proteinTotal = 0.00
 
     for food in todayMeals:
         calorieTotal += food.calories
     for food in todayMeals:
         proteinTotal = food.protein_g
+    
+    for goal in goals:
+        if goal.nutrient == "protein":
+            print(goal.progress)
+            goal.progress = round((proteinTotal/float(goal.amount))*100,3)
+        elif goal.nutrient == "calories":
+            print(goal.progress)
+            goal.progress = round((calorieTotal/float(goal.amount))*100,3)
+        if goal.progress > 100: 
+            goal.progress = 100.00
 
-    context = {'today': todayMeals,'goals': goals, 'proteinTotal': proteinTotal, 'calorieTotal' : calorieTotal}
+    context = {'today': todayMeals,'goals': goals}
     return render(request, "index.html", context)
 
 # def day(request): 

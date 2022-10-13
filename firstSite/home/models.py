@@ -8,6 +8,12 @@ UNIT_CHOICES = (
     ('lbs','Pounds'),
     ('kilograms','Kilograms')
 )
+UNIT_CHOICES2 = (
+    ('grams','Grams'),
+    ('lbs','Pounds'),
+    ('kilograms','Kilograms'),
+    ('kcal', 'Calories')
+)
 NUTRIENT_CHOICES = (
     # ('sugar','sugar_g'),
     # ('fiber','fiber_g'),
@@ -91,7 +97,8 @@ class TimeStampMixin(models.Model):
 class Goal(TimeStampMixin):
     name = models.CharField(max_length = 100, null=True)
     amount = models.IntegerField(null=True)
-    measure = models.CharField(max_length=9, choices=UNIT_CHOICES, default='grams')
+    measure = models.CharField(max_length=9, choices=UNIT_CHOICES2, default='grams')
     nutrient = models.CharField(max_length=21, choices=NUTRIENT_CHOICES, default='calories')
+    progress = models.FloatField(default=0, null=True)
     def __str__(self):
         return str(self.name)

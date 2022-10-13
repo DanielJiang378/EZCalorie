@@ -1,6 +1,5 @@
-from django.forms import ModelForm
+from django.forms import *
 from .models import Input, Goal
-from django.forms import TextInput, NumberInput
 # creating a form
 class foodForm(ModelForm):
     class Meta:
@@ -9,11 +8,11 @@ class foodForm(ModelForm):
         widgets = {
             'quantity': NumberInput(attrs={
                 'class': 'form-control',
-                'style': "min-width: 400px",
                 'placeholder': "0",
             }),
-            'unit': TextInput(attrs={
+            'unit': Select(attrs={
                 'class': 'form-control',
+                "placeholder": "Unit",
             }),
             'name': TextInput(attrs={
                 'class': 'form-control',
@@ -25,4 +24,22 @@ class goalForm(ModelForm):
      class Meta:
          model = Goal
          fields = '__all__'
+         widgets = {
+            'name': TextInput(attrs={
+                'class': 'form-control',
+            }),
+            'amount': NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': "0",
+            }),
+            'measure': Select(attrs={
+                'class': 'form-control',
+                "placeholder": "Unit",
+            }),
+            'nutrient': Select(attrs={
+                'class': 'form-control',
+                "placeholder": "Nutrient Type",
+            }),
+            'progress': HiddenInput()
+         }
          
