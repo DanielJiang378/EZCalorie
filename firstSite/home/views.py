@@ -29,7 +29,6 @@ def home(request):
 
 # def day(request): 
 #     day = Day.objects.get(id=pk_test)
-
 def addFood(request):
     import json
     import requests
