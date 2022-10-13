@@ -19,15 +19,18 @@ class AddFood(models.Model):
 	    return self.name
 
 class Food(models.Model):
-    sugar_g = models.IntegerField()
-    fiber_g = models.IntegerField()
-    serving_size_g = models.IntegerField()
-    sodium_mg = models.IntegerField()
-    name = models.CharField(max_length=100)
-    potassium_mg = models.IntegerField()
-    fat_saturated_g = models.IntegerField()
-    fat_total_g = models.IntegerField()
-    calories = models.IntegerField()
-    cholesterol_mg = models.IntegerField()
-    protein_g = models.IntegerField()
-    carbohydrates_total_g = models.IntegerField()
+    sugar_g = models.IntegerField(null=True)
+    fiber_g = models.IntegerField(null=True)
+    serving_size_g = models.IntegerField(null=True)
+    sodium_mg = models.IntegerField(null=True)
+    name = models.CharField(max_length=100, null=True)
+    potassium_mg = models.IntegerField(null=True)
+    fat_saturated_g = models.IntegerField(null=True)
+    fat_total_g = models.IntegerField(null=True)
+    calories = models.IntegerField(null=True)
+    cholesterol_mg = models.IntegerField(null=True)
+    protein_g = models.IntegerField(null=True)
+    carbohydrates_total_g = models.IntegerField(null=True)
+
+    def __str__(self):
+        return self.name

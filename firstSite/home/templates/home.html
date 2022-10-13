@@ -38,6 +38,7 @@
     </style>
     <body>
         <div>
+            
             <div class="title">
                 <h1>Welcome to EZCalories</h1>
             </div>
@@ -45,12 +46,22 @@
                 {{error}}
                 <div class="input-group mb-3 w-25">
                     <div class="input-group-prepend">
-                        <form action="" method="POST">
+                        <!-- <form action="" method="POST">
                             {% csrf_token %} {{form }} <input type="submit"
                             value=Submit">
-                        </form>
+                        </form> -->
                     </div>
                 </div>
+                <a href="{% url 'add_food' %}">Add Food</a>
+                <table class="table table-sm">
+                    {% for food in foods %}
+                        <tr>
+                            <td>{{food.name}}</td>
+                            <td>{{food.calories}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
             </div>
             <div>
                 <h1>Meals</h1>
