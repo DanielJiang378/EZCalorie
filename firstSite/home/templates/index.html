@@ -20,6 +20,193 @@
             src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
             crossorigin="anonymous"
         ></script>
+        <style>
+            .numbers {
+                margin: 0;
+                padding: 0;
+                margin-left: auto;
+                margin-right: 15px;
+            }
+
+            @import url(https://fonts.googleapis.com/css?family=Lato:700);
+            *,
+            *:before,
+            *:after {
+                box-sizing: border-box;
+            }
+            .set-size {
+                font-size: 10em;
+            }
+            .charts-container:after {
+                clear: both;
+                content: '';
+                display: table;
+            }
+            .pie-wrapper {
+                height: 1em;
+                width: 1em;
+                float: left;
+                margin: 15px;
+                position: relative;
+            }
+            .pie-wrapper:nth-child(3n + 1) {
+                clear: both;
+            }
+            .pie-wrapper .pie {
+                height: 100%;
+                width: 100%;
+                clip: rect(0, 1em, 1em, 0.5em);
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
+            .pie-wrapper .pie .half-circle {
+                height: 100%;
+                width: 100%;
+                border: 0.1em solid #3498db;
+                border-radius: 50%;
+                clip: rect(0, 0.5em, 1em, 0);
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
+            .pie-wrapper .label {
+                background: #34495e;
+                border-radius: 50%;
+                bottom: 0.4em;
+                color: #ecf0f1;
+                cursor: default;
+                display: block;
+                font-size: 0.25em;
+                left: 0.4em;
+                line-height: 2.8em;
+                position: absolute;
+                right: 0.4em;
+                text-align: center;
+                top: 0.4em;
+            }
+            .pie-wrapper .label .smaller {
+                color: #bdc3c7;
+                font-size: 0.45em;
+                padding-bottom: 20px;
+                vertical-align: super;
+            }
+            .pie-wrapper .shadow {
+                height: 100%;
+                width: 100%;
+                border: 0.1em solid #bdc3c7;
+                border-radius: 50%;
+            }
+            .pie-wrapper.style-2 .label {
+                background: none;
+                color: #7f8c8d;
+            }
+            .pie-wrapper.style-2 .label .smaller {
+                color: #bdc3c7;
+            }
+            .pie-wrapper.progress-30 .pie .half-circle {
+                border-color: #3498db;
+            }
+            .pie-wrapper.progress-30 .pie .left-side {
+                transform: rotate(108deg);
+            }
+            .pie-wrapper.progress-30 .pie .right-side {
+                display: none;
+            }
+            .pie-wrapper.progress-60 .pie {
+                clip: rect(auto, auto, auto, auto);
+            }
+            .pie-wrapper.progress-60 .pie .half-circle {
+                border-color: #9b59b6;
+            }
+            .pie-wrapper.progress-60 .pie .left-side {
+                transform: rotate(216deg);
+            }
+            .pie-wrapper.progress-60 .pie .right-side {
+                transform: rotate(180deg);
+            }
+            .pie-wrapper.progress-90 .pie {
+                clip: rect(auto, auto, auto, auto);
+            }
+            .pie-wrapper.progress-90 .pie .half-circle {
+                border-color: #e67e22;
+            }
+            .pie-wrapper.progress-90 .pie .left-side {
+                transform: rotate(324deg);
+            }
+            .pie-wrapper.progress-90 .pie .right-side {
+                transform: rotate(180deg);
+            }
+            .pie-wrapper.progress-45 .pie .half-circle {
+                border-color: #1abc9c;
+            }
+            .pie-wrapper.progress-45 .pie .left-side {
+                transform: rotate(162deg);
+            }
+            .pie-wrapper.progress-45 .pie .right-side {
+                display: none;
+            }
+            .pie-wrapper.progress-75 .pie {
+                clip: rect(auto, auto, auto, auto);
+            }
+            .pie-wrapper.progress-75 .pie .half-circle {
+                border-color: #8e44ad;
+            }
+            .pie-wrapper.progress-75 .pie .left-side {
+                transform: rotate(270deg);
+            }
+            .pie-wrapper.progress-75 .pie .right-side {
+                transform: rotate(180deg);
+            }
+            .pie-wrapper.progress-95 .pie {
+                clip: rect(auto, auto, auto, auto);
+            }
+            .pie-wrapper.progress-95 .pie .half-circle {
+                border-color: #e74c3c;
+            }
+            .pie-wrapper.progress-95 .pie .left-side {
+                transform: rotate(342deg);
+            }
+            .pie-wrapper.progress-95 .pie .right-side {
+                transform: rotate(180deg);
+            }
+            .pie-wrapper--solid {
+                border-radius: 50%;
+                overflow: hidden;
+            }
+            .pie-wrapper--solid:before {
+                border-radius: 0 100% 100% 0 / 50%;
+                content: '';
+                display: block;
+                height: 100%;
+                margin-left: 50%;
+                transform-origin: left;
+            }
+            .pie-wrapper--solid .label {
+                background: transparent;
+            }
+            .pie-wrapper--solid.progress-65 {
+                background: linear-gradient(to right, #e67e22 50%, #34495e 50%);
+            }
+            .pie-wrapper--solid.progress-65:before {
+                background: #e67e22;
+                transform: rotate(126deg);
+            }
+            .pie-wrapper--solid.progress-25 {
+                background: linear-gradient(to right, #9b59b6 50%, #34495e 50%);
+            }
+            .pie-wrapper--solid.progress-25:before {
+                background: #34495e;
+                transform: rotate(-270deg);
+            }
+            .pie-wrapper--solid.progress-88 {
+                background: linear-gradient(to right, #3498db 50%, #34495e 50%);
+            }
+            .pie-wrapper--solid.progress-88:before {
+                background: #3498db;
+                transform: rotate(43.2deg);
+            }
+        </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -251,76 +438,220 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
+                        <div style="display: flex">
+                            <h1 class="mt-4">2022-10-13</h1>
+                            <div
+                                class="set-size charts-container"
+                                style="margin-left: auto"
+                            >
+                                <div class="pie-wrapper progress-45 style-2">
+                                    <span class="label"
+                                        >45<span class="smaller">%</span></span
+                                    >
+                                    <div class="pie">
+                                        <div
+                                            class="left-side half-circle"
+                                        ></div>
+                                        <div
+                                            class="right-side half-circle"
+                                        ></div>
+                                    </div>
+                                    <div class="shadow"></div>
+                                </div>
+                            </div>
+                            <div class="set-size charts-container">
+                                <div class="pie-wrapper progress-75 style-2">
+                                    <span class="label"
+                                        >75<span class="smaller">%</span></span
+                                    >
+                                    <div class="pie">
+                                        <div
+                                            class="left-side half-circle"
+                                        ></div>
+                                        <div
+                                            class="right-side half-circle"
+                                        ></div>
+                                    </div>
+                                    <div class="shadow"></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Primary Card</div>
                                     <div
-                                        class="card-footer d-flex align-items-center justify-content-between"
+                                        class="card-body"
+                                        style="display: flex"
                                     >
-                                        <a
-                                            class="small text-white stretched-link"
-                                            href="#"
-                                            >View Details</a
-                                        >
-                                        <div class="small text-white">
-                                            <i class="fas fa-angle-right"></i>
+                                        Food 1
+                                        <div style="margin-left: auto">
+                                            2:42pm
                                         </div>
+                                    </div>
+                                    <div class="card-footer mt--3">
+                                        <ul>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Sugar (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Fiber (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Serving Size (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Sodium (mg):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Name:
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Potassium (mg):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Saturated Fat (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Total Fat (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Calories:
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Cholestoral (mg):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Protein (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Carbs (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Warning Card</div>
+                                <div class="card bg-primary text-white mb-4">
                                     <div
-                                        class="card-footer d-flex align-items-center justify-content-between"
+                                        class="card-body"
+                                        style="display: flex"
                                     >
-                                        <a
-                                            class="small text-white stretched-link"
-                                            href="#"
-                                            >View Details</a
-                                        >
-                                        <div class="small text-white">
-                                            <i class="fas fa-angle-right"></i>
+                                        Food 2
+                                        <div style="margin-left: auto">
+                                            2:42pm
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
-                                    <div
-                                        class="card-footer d-flex align-items-center justify-content-between"
-                                    >
-                                        <a
-                                            class="small text-white stretched-link"
-                                            href="#"
-                                            >View Details</a
-                                        >
-                                        <div class="small text-white">
-                                            <i class="fas fa-angle-right"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
-                                    <div
-                                        class="card-footer d-flex align-items-center justify-content-between"
-                                    >
-                                        <a
-                                            class="small text-white stretched-link"
-                                            href="#"
-                                            >View Details</a
-                                        >
-                                        <div class="small text-white">
-                                            <i class="fas fa-angle-right"></i>
-                                        </div>
+                                    <div class="card-footer mt--3">
+                                        <ul>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Sugar (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Fiber (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Serving Size (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Sodium (mg):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Name:
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Potassium (mg):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Saturated Fat (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Total Fat (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Calories:
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Cholestoral (mg):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Protein (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="display: flex">
+                                                    Carbs (g):
+                                                    <p class="numbers">20</p>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
