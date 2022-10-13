@@ -15,9 +15,9 @@ def current_datetime(request):
 
 def home(request):
     foods = Food.objects.all()
-
-    context = {'foods': foods}
-    return render(request, "index.html", context)
+    goals = Goal.objects.all()
+    context = {'foods': foods,'goals': goals}
+    return render(request, "home.html", context)
     
 def addFood(request):
     import json
@@ -42,7 +42,7 @@ def addFood(request):
             print('saved')
             return redirect('/')
         else: 
-            return render(request, 'add.html', {'error': '!!!!!!!!!!!!!!'})
+            return render(request, 'addFood.html', {'error': '!!!!!!!!!!!!!!'})
     context = {'form': form}
     return render(request, 'add.html', context)
 
@@ -58,3 +58,27 @@ def deleteFood(request, pk):
 
     context = {'item':food}
     return render(request, 'delete.html', context)
+
+def addGoal(request):
+    import json
+    import requests
+    goal = goalForm()
+    if request.method == 'POST':
+        goal = goalForm(request.POST)
+        if goal.is_valid():
+            goal.save()
+            return redirect('/')
+    context = {'goal':goal}
+    return render(request, 'add-goal.html', context)
+
+def deleteGoal(request, pk):
+    import json
+    import requests
+    goal = Goal.objects.get(id=pk)
+    print(goal)
+    if request.method == "POST":
+        goal.delete()
+        print('delete')
+        return redirect('/')
+    context = {'item':goal}
+    return render(request, 'delete-Goal.html', context)

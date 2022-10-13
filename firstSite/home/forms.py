@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Input
+from .models import Input, Goal
 from django.forms import TextInput, NumberInput
 # creating a form
 class foodForm(ModelForm):
@@ -20,3 +20,9 @@ class foodForm(ModelForm):
                 "placeholder": "Food Type",
             }),
          }
+
+class goalForm(ModelForm):
+     class Meta:
+         model = Goal
+         fields = '__all__'
+         

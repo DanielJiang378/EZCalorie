@@ -61,22 +61,33 @@
                 <a href="{% url 'add_food' %}">Add Food</a>
                 <table class="table table-sm">
                     {% for food in foods %}
-<<<<<<< HEAD
                     <tr>
                         <td>{{food.name}}</td>
                         <td>{{food.calories}}</td>
+                        <td>
+                            <a href="{% url 'delete_food' food.id %}"
+                                >Delete Food</a
+                            >
+                        </td>
                     </tr>
-=======
-                        <tr>
-                            <td>{{food.name}}</td>
-                            <td>{{food.calories}}</td>
-                            <td><a href="{% url 'delete_food' food.id %}">Delete Food</a></td>
-                        </tr>
->>>>>>> 959672718fafb59ace52fe62c2f99e0f40375c38
                     {% endfor %}
                 </table>
             </div>
             <div>
+                <a href="{% url 'add_goal' %}">Add Goal</a>
+                <table class="table table-sm">
+                    {% for goal in goals %}
+                    <tr>
+                        <td>{{goal.amount}}</td>
+                        <td>{{goal.nutrient}}</td>
+                        <td>
+                            <a href="{% url 'delete_goal' goal.id %}"
+                                >Delete Goal</a
+                            >
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
                 <h1>Meals</h1>
                 <div class="meals">
                     <div
