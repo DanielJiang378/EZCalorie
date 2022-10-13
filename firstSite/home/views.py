@@ -19,13 +19,13 @@ def current_datetime(request):
 def home(request):
     #foods = Food.objects.all()
     now = datetime.now()
-    time = Date(day=now.strftime("%d"), month=strftime("%m"), year=strftime("%Y"))
-    todayMeals = [obj for obj in Food.objects.all() if obj.day == time]
-    foods = [obj for obj in Food.objects.all() if obj.day != time]
+    time = now.strftime("%m") + "/" + now.strftime("%d") + "/" + now.strftime("%Y")
+    #todayMeals = [obj for obj in Food.objects.all() if obj.day == now]
+    todayMeals = Food.objects.all().filter(day__date = now)
+    #foods = Food.objects.all().filter(day__date = now)
 
-    context = {'today': todayMeals, 'rest': foods}
-    return render(request, "index.html", context)
-
+    context = {'today': todayMeals}
+    return render(request, "home.html", context)
 
 # def day(request): 
 #     day = Day.objects.get(id=pk_test)
@@ -45,13 +45,11 @@ def addFood(request):
             temp = temp[0]
 
             now = datetime.now()
-            time = Date(day=now.strftime("%d"), month=strftime("%m"), year=strftime("%Y"))
-
-
-            food = Food(date=time, sugar_g=temp['sugar_g'], fiber_g=temp['fiber_g'], serving_size_g=temp['serving_size_g'] , 
+            food = Food(day=now, sugar_g=temp['sugar_g'], fiber_g=temp['fiber_g'], serving_size_g=temp['serving_size_g'] , 
                         sodium_mg=temp['sodium_mg'], name=temp['name'], potassium_mg=temp['potassium_mg'], fat_saturated_g=temp['fat_saturated_g'],
                         fat_total_g=temp['fat_total_g'], calories=temp['calories'], cholesterol_mg=temp['cholesterol_mg'], protein_g=temp['protein_g'],
                         carbohydrates_total_g=temp['carbohydrates_total_g'])
+  
             #print(temp)
             food.save()
             print('saved')

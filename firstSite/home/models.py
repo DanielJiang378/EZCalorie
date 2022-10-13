@@ -36,20 +36,21 @@ class AddFood(models.Model):
     def __str__(self):
 	    return self.name
 
-class Day(models.Model):
-    # day = models.IntegerField(validators=[MaxValueValidator(30),MinValueValidator(1)](null=True))
-    # month = models.CharField(choices=MONTH_CHOICES, default='January',null=True)
-    # year = models.IntegerField(null=True)
-    day = models.CharField(null=True)
-    month = models.CharField(null=True)
-    year = models.IntegerField(null=True)
-    
-    def __str__(self):
-        return self.month + "/" + str(self.day) + "/" + str(self.year)
+# class Date(models.Model):
+#     # day = models.IntegerField(validators=[MaxValueValidator(30),MinValueValidator(1)](null=True))
+#     # month = models.CharField(choices=MONTH_CHOICES, default='January',null=True)
+#     # year = models.IntegerField(null=True)
+#     day = models.CharField(max_length=5, null=True)
+#     month = models.CharField(max_length=12, null=True)
+#     year = models.CharField(max_length=12, null=True)
+
+#     def __str__(self):
+#         return self.month + "/" + self.day + "/" + self.year
 
 
 class Food(models.Model):
-    day = models.ForeignKey(Day, null=True, on_delete=models.SET_NULL)
+    #day = models.ForeignKey(Date, null=True, on_delete=models.SET_NULL)
+    day = models.DateTimeField(auto_now_add=True, null=True)
     sugar_g = models.IntegerField(null=True)
     fiber_g = models.IntegerField(null=True)
     serving_size_g = models.IntegerField(null=True)

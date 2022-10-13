@@ -60,19 +60,21 @@
                 {{error}}
                 <a href="{% url 'add_food' %}">Add Food</a>
                 <table class="table table-sm">
-                    {% for food in foods %}
-<<<<<<< HEAD
-                    <tr>
-                        <td>{{food.name}}</td>
-                        <td>{{food.calories}}</td>
-                    </tr>
-=======
+                    {% for food in today %}
                         <tr>
+                            <td>{{food.day}}</td>
                             <td>{{food.name}}</td>
                             <td>{{food.calories}}</td>
                             <td><a href="{% url 'delete_food' food.id %}">Delete Food</a></td>
                         </tr>
->>>>>>> 959672718fafb59ace52fe62c2f99e0f40375c38
+                    {% endfor %}
+                    {% for food in rest %}
+                        <tr>
+                            <td>{{food.day}}</td>
+                            <td>{{food.name}}</td>
+                            <td>{{food.calories}}</td>
+                            <td><a href="{% url 'delete_food' food.id %}">Delete Food</a></td>
+                        </tr>
                     {% endfor %}
                 </table>
             </div>
