@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Our Funky HTML Page</title>
-        <meta name="description" content="Our first page" />
-        <meta name="keywords" content="html tutorial template" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
     </head>
+
     <body>
+        <div class="navbar-wrapper">
+            <div class="container">
+                <nav
+                    class="navbar navbar-inverse navbar-fixed-top"
+                    id="navbar_whole"
+                >
+                    <div class="navbar-header">
+                        <button
+                            type="button"
+                            class="navbar-toggle collapsed"
+                            data-toggle="collapse"
+                            data-target="#navbar"
+                            aria-expanded="false"
+                            aria-controls="navbar"
+                        >
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--Below is the top-left hand side of the screen where you usually see a company/project name and a logo-->
+                        <!--The next line sends the user back to the home page-->
+                        <a class="navbar-brand" href="#">
+                            <!--Insert the file name of your brand image below after the 'img'-->
+                            <img
+                                class="img-responsive"
+                                src="/static/bootstrap/img/INSERT IMAGE OF BRAND HERE"
+                            />
+                        </a>
+                    </div>
+
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <!--Below is where you put the rest of the links to the pages you've created. Please reference your own models
+                       in Django.-->
+                            <li>
+                                <a href="#">Cities</a>
+                            </li>
+                            <li>
+                                <a href="#">Cafes</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="card card-body">
