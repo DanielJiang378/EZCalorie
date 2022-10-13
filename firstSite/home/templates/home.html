@@ -35,23 +35,29 @@
             margin-left: auto;
             margin-right: 10px;
         }
+
+        .page {
+            background-color: #222222;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .page h1,
+        h5,
+        p {
+            color: #fffcf2;
+            margin: 0;
+        }
     </style>
     <body>
-        <div>
-            
-            <div class="title">
-                <h1>Welcome to EZCalories</h1>
+        <div class="page">
+            <div class="nav">
+                <nav class="navbar navbar-light justify-content-between">
+                    <a class="navbar-brand"><h1>EZCalories</h1></a>
+                </nav>
             </div>
             <div class="title">
                 {{error}}
-                <div class="input-group mb-3 w-25">
-                    <div class="input-group-prepend">
-                        <!-- <form action="" method="POST">
-                            {% csrf_token %} {{form }} <input type="submit"
-                            value=Submit">
-                        </form> -->
-                    </div>
-                </div>
                 <a href="{% url 'add_food' %}">Add Food</a>
                 <table class="table table-sm">
                     {% for food in foods %}
@@ -67,49 +73,97 @@
             <div>
                 <h1>Meals</h1>
                 <div class="meals">
-                    <div class="card border-dark mb-3" style="max-width: 18rem">
-                        <div class="card-header">150g Chicken Breast</div>
-                        <div class="card-body text-dark">
-                            <h5 class="card-title">Total Calories: 300</h5>
+                    <div
+                        class="card mb-3"
+                        style="max-width: 20rem; border-color: white"
+                    >
+                        <div
+                            class="card-header"
+                            style="background-color: #444444; color: #fffcf2"
+                        >
+                            Chicken Butt
+                        </div>
+                        <div
+                            class="card-body"
+                            style="background-color: #303030"
+                        >
+                            <h4 class="card-title" style="color: #fffcf2">
+                                Total Calories: 300
+                            </h4>
                             <p class="card-text">
                                 Protein: 100g <br />
-                                Fat: 10g
+                                fat: 40g
                             </p>
                         </div>
-                        <p class="date">2022-10-12</p>
                     </div>
-                    <div class="card border-dark mb-3" style="max-width: 18rem">
-                        <div class="card-header">150g Chicken Breast</div>
-                        <div class="card-body text-dark">
-                            <h5 class="card-title">Total Calories: 300</h5>
+                    <div
+                        class="card mb-3"
+                        style="max-width: 20rem; border-color: white"
+                    >
+                        <div
+                            class="card-header"
+                            style="background-color: #444444; color: #fffcf2"
+                        >
+                            Chicken Butt
+                        </div>
+                        <div
+                            class="card-body"
+                            style="background-color: #303030"
+                        >
+                            <h4 class="card-title" style="color: #fffcf2">
+                                Total Calories: 300
+                            </h4>
                             <p class="card-text">
                                 Protein: 100g <br />
-                                Fat: 10g
+                                fat: 40g
                             </p>
                         </div>
-                        <p class="date">2022-10-12</p>
                     </div>
-                    <div class="card border-dark mb-3" style="max-width: 18rem">
-                        <div class="card-header">150g Chicken Breast</div>
-                        <div class="card-body text-dark">
-                            <h5 class="card-title">Total Calories: 300</h5>
+                    <div
+                        class="card mb-3"
+                        style="max-width: 20rem; border-color: white"
+                    >
+                        <div
+                            class="card-header"
+                            style="background-color: #444444; color: #fffcf2"
+                        >
+                            Chicken Butt
+                        </div>
+                        <div
+                            class="card-body"
+                            style="background-color: #303030"
+                        >
+                            <h4 class="card-title" style="color: #fffcf2">
+                                Total Calories: 300
+                            </h4>
                             <p class="card-text">
                                 Protein: 100g <br />
-                                Fat: 10g
+                                fat: 40g
                             </p>
                         </div>
-                        <p class="date">2022-10-12</p>
                     </div>
-                    <div class="card border-dark mb-3" style="max-width: 18rem">
-                        <div class="card-header">150g Chicken Breast</div>
-                        <div class="card-body text-dark">
-                            <h5 class="card-title">Total Calories: 300</h5>
+                    <div
+                        class="card mb-3"
+                        style="max-width: 20rem; border-color: white"
+                    >
+                        <div
+                            class="card-header"
+                            style="background-color: #444444; color: #fffcf2"
+                        >
+                            Chicken Butt
+                        </div>
+                        <div
+                            class="card-body"
+                            style="background-color: #303030"
+                        >
+                            <h4 class="card-title" style="color: #fffcf2">
+                                Total Calories: 300
+                            </h4>
                             <p class="card-text">
                                 Protein: 100g <br />
-                                Fat: 10g
+                                fat: 40g
                             </p>
                         </div>
-                        <p class="date">2022-10-12</p>
                     </div>
                 </div>
             </div>

@@ -2,7 +2,6 @@ from tempfile import TemporaryFile
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 import datetime
-
 from django.urls import is_valid_path
 from .forms import *
 from .models import *
