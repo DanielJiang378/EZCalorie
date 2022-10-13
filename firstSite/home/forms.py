@@ -3,10 +3,10 @@ from .models import Input, Goal
 from django.forms import TextInput, NumberInput
 # creating a form
 class foodForm(ModelForm):
-     class Meta:
-         model = Input
-         fields = '__all__'
-         widgets = {
+    class Meta:
+        model = Input
+        fields = '__all__'
+        widgets = {
             'quantity': NumberInput(attrs={
                 'class': 'form-control',
                 'style': "min-width: 400px",

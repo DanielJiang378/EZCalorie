@@ -17,6 +17,10 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
         <script
+            src="https://kit.fontawesome.com/yourcode.js"
+            crossorigin="anonymous"
+        ></script>
+        <script
             src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
             crossorigin="anonymous"
         ></script>
@@ -276,11 +280,17 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="{% url 'add_food' %}">
                                 <div class="sb-nav-link-icon">
                                     <i class="fas fa-tachometer-alt"></i>
                                 </div>
-                                Dashboard
+                                Add Food
+                            </a>
+                            <a class="nav-link" href="{% url 'add_goal' %}">
+                                <div class="sb-nav-link-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                Add Goal
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a
@@ -439,47 +449,35 @@
                 <main>
                     <div class="container-fluid px-4">
                         <div style="display: flex">
-                            <a href="{% url 'add_food' %}">Add Food</a>
                             <h1 class="mt-4">2022-10-13</h1>
-                            <div
-                                class="set-size charts-container"
-                                style="margin-left: auto"
-                            >
-                                <div class="pie-wrapper progress-45 style-2">
-                                    <span class="label"
-                                        >45<span class="smaller">%</span></span
+                            <div style="display: flex; margin-left: auto">
+                                {% for goal in goals %}
+                                <div class="set-size charts-container">
+                                    <div
+                                        class="pie-wrapper progress-100 style-2"
                                     >
-                                    <div class="pie">
-                                        <div
-                                            class="left-side half-circle"
-                                        ></div>
-                                        <div
-                                            class="right-side half-circle"
-                                        ></div>
+                                        <span class="label"
+                                            >45<span class="smaller"
+                                                >%</span
+                                            ></span
+                                        >
+                                        <div class="pie">
+                                            <div
+                                                class="left-side half-circle"
+                                            ></div>
+                                            <div
+                                                class="right-side half-circle"
+                                            ></div>
+                                        </div>
+                                        <div class="shadow"></div>
                                     </div>
-                                    <div class="shadow"></div>
                                 </div>
-                            </div>
-                            <div class="set-size charts-container">
-                                <div class="pie-wrapper progress-75 style-2">
-                                    <span class="label"
-                                        >75<span class="smaller">%</span></span
-                                    >
-                                    <div class="pie">
-                                        <div
-                                            class="left-side half-circle"
-                                        ></div>
-                                        <div
-                                            class="right-side half-circle"
-                                        ></div>
-                                    </div>
-                                    <div class="shadow"></div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="row">
                             {% for food in today %}
-                            
+
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div
@@ -489,6 +487,17 @@
                                         {{food.name}}
                                         <div style="margin-left: auto">
                                             2:42pm
+                                            <a
+                                                href="{% url 'delete_food' food.id %}"
+                                            >
+                                                <i
+                                                    class="fas fa-trash"
+                                                    style="
+                                                        color: white;
+                                                        margin-left: 10px;
+                                                    "
+                                                ></i>
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="card-footer mt--3">
@@ -496,67 +505,89 @@
                                             <li>
                                                 <div style="display: flex">
                                                     Sugar (g):
-                                                    <p class="numbers">{{food.sugar_g}}</p>
+                                                    <p class="numbers">
+                                                        {{food.sugar_g}}
+                                                    </p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Fiber (g):
-                                                    <p class="numbers">{{food.fiber_g}}</p>
+                                                    <p class="numbers">
+                                                        {{food.fiber_g}}
+                                                    </p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Serving Size (g):
-                                                    <p class="numbers">{{food.serving_size_g}}</p>
+                                                    <p class="numbers">
+                                                        {{food.serving_size_g}}
+                                                    </p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Sodium (mg):
-                                                    <p class="numbers">{{food.sodium_mg}}</p>
+                                                    <p class="numbers">
+                                                        {{food.sodium_mg}}
+                                                    </p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Potassium (mg):
-                                                    <p class="numbers">{{food.potassium_mg}}</p>
+                                                    <p class="numbers">
+                                                        {{food.potassium_mg}}
+                                                    </p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Saturated Fat (g):
-                                                    <p class="numbers">{{food.fat_saturated_g}}</p>
+                                                    <p class="numbers">
+                                                        {{food.fat_saturated_g}}
+                                                    </p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Total Fat (g):
-                                                    <p class="numbers">{{food.fat_total_g}}</p>
+                                                    <p class="numbers">
+                                                        {{food.fat_total_g}}
+                                                    </p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Calories:
-                                                    <p class="numbers">{{food.calories}}</p>
+                                                    <p class="numbers">
+                                                        {{food.calories}}
+                                                    </p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Cholestoral (mg):
-                                                    <p class="numbers">{{food.cholesterol_mg}}</p>
+                                                    <p class="numbers">
+                                                        {{food.cholesterol_mg}}
+                                                    </p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Protein (g):
-                                                    <p class="numbers">{{food.protein_g}}</p>
+                                                    <p class="numbers">
+                                                        {{food.protein_g}}
+                                                    </p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Carbs (g):
-                                                    <p class="numbers">{{food.carbohydrates_total_g}}</p>
+                                                    <p class="numbers">
+                                                        {{food.carbohydrates_total_g}}
+                                                    </p>
                                                 </div>
                                             </li>
                                         </ul>

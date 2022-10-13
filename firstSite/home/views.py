@@ -24,8 +24,17 @@ def home(request):
     #todayMeals = [obj for obj in Food.objects.all() if obj.day == now]
     todayMeals = Food.objects.all().filter(day__date = now)
     #foods = Food.objects.all().filter(day__date = now)
-    context = {'today': todayMeals,'goals': goals}
-    return render(request, "home.html", context)
+
+    calorieTotal = 0
+    proteinTotal = 0
+
+    for food in todayMeals:
+        calorieTotal += food.calories
+    for food in todayMeals:
+        proteinTotal = food.protein_g
+
+    context = {'today': todayMeals,'goals': goals, 'proteinTotal': proteinTotal, 'calorieTotal' : calorieTotal}
+    return render(request, "index.html", context)
 
 # def day(request): 
 #     day = Day.objects.get(id=pk_test)

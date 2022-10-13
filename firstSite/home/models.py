@@ -9,17 +9,18 @@ UNIT_CHOICES = (
     ('kilograms','Kilograms')
 )
 NUTRIENT_CHOICES = (
-    ('sugar','sugar_g'),
-    ('fiber','fiber_g'),
-    ('serving_size','serving_size_g'),
-    ('sodium','sodium_mg'),
-    ('name','name'),
-    ('potassium','potassium_mg'),
-    ('fat_saturated','fat_saturated_g'),
-    ('fat_total','fat_total_g'),
+    # ('sugar','sugar_g'),
+    # ('fiber','fiber_g'),
+    # ('serving_size','serving_size_g'),
+    # ('sodium','sodium_mg'),
+    # ('name','name'),
+    # ('potassium','potassium_mg'),
+    # ('fat_saturated','fat_saturated_g'),
+    # ('fat_total','fat_total_g'),
     ('calories','calories'),
-    ('cholesterol','cholesterol_mg'),
-    ('carbohydrates_total','carbohydrates_total_g'),
+    # ('cholesterol','cholesterol_mg'),
+    ('protein', 'protein_g')
+    #('carbohydrates_total','carbohydrates_total_g'),
 )
 
 MONTH_CHOICES = (
@@ -91,6 +92,6 @@ class Goal(TimeStampMixin):
     name = models.CharField(max_length = 100, null=True)
     amount = models.IntegerField(null=True)
     measure = models.CharField(max_length=9, choices=UNIT_CHOICES, default='grams')
-    nutrient = models.CharField(max_length=21, choices=NUTRIENT_CHOICES, default='sugar')
+    nutrient = models.CharField(max_length=21, choices=NUTRIENT_CHOICES, default='calories')
     def __str__(self):
         return str(self.name)
