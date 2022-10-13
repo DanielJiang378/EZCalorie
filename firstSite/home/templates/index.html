@@ -439,6 +439,7 @@
                 <main>
                     <div class="container-fluid px-4">
                         <div style="display: flex">
+                            <a href="{% url 'add_food' %}">Add Food</a>
                             <h1 class="mt-4">2022-10-13</h1>
                             <div
                                 class="set-size charts-container"
@@ -477,13 +478,15 @@
                             </div>
                         </div>
                         <div class="row">
+                            {% for food in today %}
+                            
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div
                                         class="card-body"
                                         style="display: flex"
                                     >
-                                        Food 1
+                                        {{food.name}}
                                         <div style="margin-left: auto">
                                             2:42pm
                                         </div>
@@ -493,168 +496,74 @@
                                             <li>
                                                 <div style="display: flex">
                                                     Sugar (g):
-                                                    <p class="numbers">20</p>
+                                                    <p class="numbers">{{food.sugar_g}}</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Fiber (g):
-                                                    <p class="numbers">20</p>
+                                                    <p class="numbers">{{food.fiber_g}}</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Serving Size (g):
-                                                    <p class="numbers">20</p>
+                                                    <p class="numbers">{{food.serving_size_g}}</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Sodium (mg):
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Name:
-                                                    <p class="numbers">20</p>
+                                                    <p class="numbers">{{food.sodium_mg}}</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Potassium (mg):
-                                                    <p class="numbers">20</p>
+                                                    <p class="numbers">{{food.potassium_mg}}</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Saturated Fat (g):
-                                                    <p class="numbers">20</p>
+                                                    <p class="numbers">{{food.fat_saturated_g}}</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Total Fat (g):
-                                                    <p class="numbers">20</p>
+                                                    <p class="numbers">{{food.fat_total_g}}</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Calories:
-                                                    <p class="numbers">20</p>
+                                                    <p class="numbers">{{food.calories}}</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Cholestoral (mg):
-                                                    <p class="numbers">20</p>
+                                                    <p class="numbers">{{food.cholesterol_mg}}</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Protein (g):
-                                                    <p class="numbers">20</p>
+                                                    <p class="numbers">{{food.protein_g}}</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div style="display: flex">
                                                     Carbs (g):
-                                                    <p class="numbers">20</p>
+                                                    <p class="numbers">{{food.carbohydrates_total_g}}</p>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div
-                                        class="card-body"
-                                        style="display: flex"
-                                    >
-                                        Food 2
-                                        <div style="margin-left: auto">
-                                            2:42pm
-                                        </div>
-                                    </div>
-                                    <div class="card-footer mt--3">
-                                        <ul>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Sugar (g):
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Fiber (g):
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Serving Size (g):
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Sodium (mg):
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Name:
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Potassium (mg):
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Saturated Fat (g):
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Total Fat (g):
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Calories:
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Cholestoral (mg):
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Protein (g):
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div style="display: flex">
-                                                    Carbs (g):
-                                                    <p class="numbers">20</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                         <div class="row">
                             <div class="col-xl-6">

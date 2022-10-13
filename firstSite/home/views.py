@@ -25,7 +25,7 @@ def home(request):
     #foods = Food.objects.all().filter(day__date = now)
 
     context = {'today': todayMeals}
-    return render(request, "home.html", context)
+    return render(request, "index.html", context)
 
 # def day(request): 
 #     day = Day.objects.get(id=pk_test)
