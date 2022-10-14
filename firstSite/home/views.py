@@ -32,10 +32,8 @@ def home(request):
     
     for goal in goals:
         if goal.nutrient == "protein":
-            print(goal.progress)
             goal.progress = round((proteinTotal/float(goal.amount))*100,3)
         elif goal.nutrient == "calories":
-            print(goal.progress)
             goal.progress = round((calorieTotal/float(goal.amount))*100,3)
         if goal.progress > 100: 
             goal.progress = 100.00
@@ -76,7 +74,6 @@ def deleteFood(request, pk):
     import json
     import requests
     food = Food.objects.get(id=pk)
-    print(food)
     if request.method == "POST":
         food.delete()
         print('delete')
@@ -89,6 +86,7 @@ def addGoal(request):
     goal = goalForm()
     if request.method == 'POST':
         goal = goalForm(request.POST)
+        print(goal)
         if goal.is_valid():
             goal.save()
             return redirect('/')
