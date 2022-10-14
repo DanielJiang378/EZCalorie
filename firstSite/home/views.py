@@ -26,7 +26,6 @@ def home(request):
     #foods = Food.objects.all().filter(day__date = now)
 
     date = now.strftime("%B %d, %Y")
-    time = now.strftime("%H:%M:%S")
 
     calorieTotal = 0.00
     proteinTotal = 0.00
@@ -49,7 +48,7 @@ def home(request):
         if goal.progress > 100: 
             goal.progress = 100.00
 
-    context = {'today': todayMeals,'goals': goals}
+    context = {'today': todayMeals,'goals': goals, 'date': date}
     return render(request, "index.html", context)
 
 # def day(request): 
