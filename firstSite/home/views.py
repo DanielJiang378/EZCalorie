@@ -9,7 +9,6 @@ from .forms import *
 from .models import *
 from datetime import datetime
 
-# Create your views here.
 def home(request):
     goals = Goal.objects.all()
     now = datetime.now()
@@ -19,7 +18,7 @@ def home(request):
 
     calorieTotal = 0.00
     proteinTotal = 0.00
-    
+
     for food in todayMeals:
         calorieTotal += food.calories
         proteinTotal += food.protein_g
@@ -45,19 +44,14 @@ def addFood(request):
         api_url = "https://api.calorieninjas.com/v1/nutrition?query="
         response = requests.get (api_url + query, headers ={'X-Api-Key': 'SeoEFgGuKRfRhHPo1+abzQ==xxVveS7IslW8qTa3'})
         temp = json.loads(response.content)['items']
-
         if response.status_code == requests.codes.ok and len(temp) != 0:
-
             temp = temp[0]
-            now = datetime.now()
-
+            now = datetime.now()          
             food = Food(day=now, sugar_g=temp['sugar_g'], fiber_g=temp['fiber_g'], serving_size_g=temp['serving_size_g'] , 
                         sodium_mg=temp['sodium_mg'], name=temp['name'], potassium_mg=temp['potassium_mg'], fat_saturated_g=temp['fat_saturated_g'],
                         fat_total_g=temp['fat_total_g'], calories=temp['calories'], cholesterol_mg=temp['cholesterol_mg'], protein_g=temp['protein_g'],
                         carbohydrates_total_g=temp['carbohydrates_total_g'])
-  
             food.save()
-            print('saved')
             return redirect('/')
         else: 
             return render(request, 'addFood.html', {'error': '!!!!!!!!!!!!!!'})
@@ -70,7 +64,6 @@ def deleteFood(request, pk):
     food = Food.objects.get(id=pk)
     if request.method == "POST":
         food.delete()
-        print('delete')
         return redirect('/')
 
     context = {'item':food}
@@ -80,7 +73,6 @@ def addGoal(request):
     goal = goalForm()
     if request.method == 'POST':
         goal = goalForm(request.POST)
-        print(goal)
         if goal.is_valid():
             goal.save()
             return redirect('/')
@@ -89,10 +81,8 @@ def addGoal(request):
 
 def deleteGoal(request, pk):
     goal = Goal.objects.get(id=pk)
-    print(goal)
     if request.method == "POST":
         goal.delete()
-        print('delete')
         return redirect('/')
     context = {'item':goal}
     return render(request, 'delete-Goal.html', context)

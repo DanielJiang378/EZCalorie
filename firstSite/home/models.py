@@ -19,7 +19,6 @@ NUTRIENT_CHOICES = (
     ('protein', 'protein_g')
 )
 
-# Create your models here.
 class Input(models.Model):
     quantity = models.IntegerField()
     unit = models.CharField(max_length=9, choices=UNIT_CHOICES, default='grams')
@@ -34,7 +33,6 @@ class AddFood(models.Model):
 	    return self.name
 
 class Food(models.Model):
-    #day = models.ForeignKey(Date, null=True, on_delete=models.SET_NULL)
     day = models.DateTimeField(auto_now_add=True, null=True)
     sugar_g = models.IntegerField(null=True)
     fiber_g = models.IntegerField(null=True)
