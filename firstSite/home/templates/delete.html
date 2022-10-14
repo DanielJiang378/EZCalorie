@@ -6,13 +6,13 @@
         <meta name="keywords" content="html tutorial template" />
     </head>
     <body>
-        <div class="container" style="display: flex; align-items: center; justify-content: center">
-                <h1> Are you sure you want to delete "{{item}}"? </h1>
-                <form action="{% url 'delete_food' item.id %}" method="POST">
-                    {% csrf_token %} 
-                    <a href="{% url 'home' %}">Cancel</a>
-                    <input type="submit" name="Confirm" />
-                </form>
-        <div>
+        <div class="container">
+            <h1>Are you sure you want to delete "{{item}}"?</h1>
+            <form action="{% url 'delete_food' item.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" name="Confirm" />
+                <a href="{% url 'home' %}">Cancel</a>
+            </form>
+        </div>
     </body>
 </html>

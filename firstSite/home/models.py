@@ -15,34 +15,10 @@ UNIT_CHOICES2 = (
     ('kcal', 'Calories')
 )
 NUTRIENT_CHOICES = (
-    # ('sugar','sugar_g'),
-    # ('fiber','fiber_g'),
-    # ('serving_size','serving_size_g'),
-    # ('sodium','sodium_mg'),
-    # ('name','name'),
-    # ('potassium','potassium_mg'),
-    # ('fat_saturated','fat_saturated_g'),
-    # ('fat_total','fat_total_g'),
     ('calories','calories'),
-    # ('cholesterol','cholesterol_mg'),
     ('protein', 'protein_g')
-    #('carbohydrates_total','carbohydrates_total_g'),
 )
 
-MONTH_CHOICES = (
-    ('January'),
-    ('February'),
-    ('March'),
-    ('April'),
-    ('May'),
-    ('June'),
-    ('July'),
-    ('August'),
-    ('September'),
-    ('October'),
-    ('November'),
-    ('December')
-)
 # Create your models here.
 class Input(models.Model):
     quantity = models.IntegerField()
@@ -56,18 +32,6 @@ class AddFood(models.Model):
 
     def __str__(self):
 	    return self.name
-
-# class Date(models.Model):
-#     # day = models.IntegerField(validators=[MaxValueValidator(30),MinValueValidator(1)](null=True))
-#     # month = models.CharField(choices=MONTH_CHOICES, default='January',null=True)
-#     # year = models.IntegerField(null=True)
-#     day = models.CharField(max_length=5, null=True)
-#     month = models.CharField(max_length=12, null=True)
-#     year = models.CharField(max_length=12, null=True)
-
-#     def __str__(self):
-#         return self.month + "/" + self.day + "/" + self.year
-
 
 class Food(models.Model):
     #day = models.ForeignKey(Date, null=True, on_delete=models.SET_NULL)
@@ -88,13 +52,7 @@ class Food(models.Model):
     def __str__(self):
         return str(self.name)
 
-class TimeStampMixin(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        abstract = True
-
-class Goal(TimeStampMixin):
+class Goal(models.Model):
     name = models.CharField(max_length = 100, null=True)
     amount = models.IntegerField(null=True)
     measure = models.CharField(max_length=9, choices=UNIT_CHOICES2, default='grams')

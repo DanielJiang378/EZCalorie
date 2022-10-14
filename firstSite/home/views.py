@@ -10,12 +10,6 @@ from .models import *
 from datetime import datetime
 
 # Create your views here.
-def current_datetime(request):
-    now = datetime.datetime.now()
-    html = "<html><body>It is now %s.  </body></html>" % now
-    return HttpResponse(html)
-
-
 def home(request):
     goals = Goal.objects.all()
     now = datetime.now()
@@ -32,9 +26,9 @@ def home(request):
     
     for goal in goals:
         if goal.nutrient == "protein":
-            goal.progress = round((proteinTotal/float(goal.amount))*100,3)
+            goal.progress = round((proteinTotal/float(goal.amount))*100,2)
         elif goal.nutrient == "calories":
-            goal.progress = round((calorieTotal/float(goal.amount))*100,3)
+            goal.progress = round((calorieTotal/float(goal.amount))*100,2)
         if goal.progress > 100: 
             goal.progress = 100.00
 

@@ -14,11 +14,12 @@
     </head>
 
     <body>
-        <div class="container">
-            <h1> Submit a Goal </h1>
+        <div class="container" style="margin-top: 20px">
+            <h1>Submit a Goal</h1>
             <form action="" method="POST">
                 {% csrf_token %} {{goal.as_p }}
                 <input type="submit" name="Submit" />
+                <a href="{% url 'home' %}">Cancel</a>
             </form>
         </div>
     </body>

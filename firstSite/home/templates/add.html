@@ -14,12 +14,13 @@
     </head>
 
     <body>
-        <div class="container">
-        <h1>Submit food</h1>
-        <form action="" method="POST">
-            {% csrf_token %} {{form.as_p}}
-            <input type="submit" name="Submit" />
-        </form>
-    </div>
+        <div class="container" style="margin-top: 20px">
+            <h1>Submit food</h1>
+            <form action="" method="POST">
+                {% csrf_token %} {{form.as_p}}
+                <input type="submit" name="Submit" />
+                <a href="{% url 'home' %}">Cancel</a>
+            </form>
+        </div>
     </body>
 </html>
