@@ -118,6 +118,9 @@ venv.bak/
 *.sublime-workspace 
 *.sublime-project 
 
+# config.py
+config.py
+
 # sftp configuration file 
 sftp-config.json 
 

@@ -8,6 +8,7 @@ from django.urls import is_valid_path
 from .forms import *
 from .models import *
 from datetime import datetime
+from config import *
 
 def home(request):
     goals = Goal.objects.all()
@@ -42,7 +43,7 @@ def addFood(request):
         form = foodForm(request.POST)
         query = request.POST['quantity'] + request.POST['unit'] + " "+ request.POST['name']
         api_url = "https://api.calorieninjas.com/v1/nutrition?query="
-        response = requests.get (api_url + query, headers ={'X-Api-Key': 'SeoEFgGuKRfRhHPo1+abzQ==xxVveS7IslW8qTa3'})
+        response = requests.get (api_url + query, headers ={'X-Api-Key': api_key})
         temp = json.loads(response.content)['items']
         if response.status_code == requests.codes.ok and len(temp) != 0:
             temp = temp[0]
